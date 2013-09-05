@@ -105,7 +105,7 @@ def RecalibrateVariants():
                        '-an QD -an MQRankSum -an ReadPosRankSum -an FS '
                        '-mode SNP -recalFile snp.recal -tranchesFile snp.tranches'
                        % (java_bin, gatk_jar, reference, hapmap, omni, dbsnp))
-  #RunCommand(snp_recal_command)
+  RunCommand(snp_recal_command)
   indel_recal_command = ('%s -Xmx2g -jar %s -T VariantRecalibrator -nt 8 -input raw_variants.vcf -R %s '
                          '--maxGaussians 2 '
                          '-resource:mills,known=false,training=true,truth=true,prior=12.0 %s '
